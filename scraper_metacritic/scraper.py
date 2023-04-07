@@ -64,7 +64,7 @@ def metacritic_web_scrapper(url, page) -> list[dict]:
 
 def writing_to_json_data(url):
     last_page = get_last_page(url)
-    for page in range(75, int(last_page) + 1):
+    for page in range(0, int(last_page) + 1):
         with open(f'metacritic_data_json_game/games_from_page{page}.json', 'a') as file:
             game_link = metacritic_web_scrapper(url, page)
             json.dump(game_link, file)
