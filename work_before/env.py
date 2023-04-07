@@ -8,8 +8,7 @@ from sqlalchemy.ext.asyncio import AsyncEngine
 
 from alembic import context
 from db.db_coonection import Base
-# from models.models import Developer, Game, Genre, Platform, Publisher
-from models.models import Game, Publisher
+from models.models import Developer, Game, Genre, Platform, Publisher
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

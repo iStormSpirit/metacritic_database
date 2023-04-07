@@ -1,6 +1,9 @@
 import json
+import os.path
 
 folder_path = 'metacritic_data_json_game'
+num_files = len([f for f in os.listdir(folder_path)
+                 if os.path.isfile(os.path.join(folder_path, f))]) - 1
 
 
 def get_uniq_data() -> dict:
@@ -8,7 +11,8 @@ def get_uniq_data() -> dict:
     platforms = []
     genres = []
     developers = []
-    for page in range(0, 203):
+    publishers = []
+    for page in range(0, int(num_files)):
         try:
             with open(f'{folder_path}/games_from_page{page}.json', 'r') as file:
                 data = json.loads(file.read())
@@ -39,12 +43,23 @@ def get_uniq_data() -> dict:
                             for k in lst:
                                 if k not in genres:
                                     developers.append(k)
+
+                    match i['publisher']:
+                        case val if isinstance(val, str):
+                            if val not in publishers:
+                                publishers.append(val)
+                        case lst if isinstance(lst, list):
+                            for k in lst:
+                                if k not in publishers:
+                                    publishers.append(k)
+
         except Exception as error:
             print(f'In loading file {page} get error {error}')
 
-    uniq_data['developers'] = developers
-    uniq_data['genres'] = genres
-    uniq_data['platforms'] = platforms
+    uniq_data['developer'] = developers
+    uniq_data['genre'] = genres
+    uniq_data['platform'] = platforms
+    uniq_data['publisher'] = publishers
     return uniq_data
 
 
