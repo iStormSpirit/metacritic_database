@@ -7,6 +7,10 @@ num_files = len([f for f in os.listdir(folder_path)
 
 
 def get_uniq_data() -> dict:
+    """
+    Helper function to find and write uniq platforms, genres, developers, publisher
+    :return: dict with data
+    """
     uniq_data = {}
     platforms = []
     genres = []
@@ -64,6 +68,9 @@ def get_uniq_data() -> dict:
 
 
 def write_uniq_date_json():
+    """
+    Creating json with uniq_data for get_uniq_data function
+    """
     with open(f'{folder_path}/uniq_data.json', 'a') as file:
         data = get_uniq_data()
         json.dump(data, file)

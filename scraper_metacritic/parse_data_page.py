@@ -1,4 +1,4 @@
-def get_soup_general_data(soup):
+def get_soup_general_data(soup) -> dict:
     """
     This function gets a game's soup and returns a dictionary containing general data about the game
     """
