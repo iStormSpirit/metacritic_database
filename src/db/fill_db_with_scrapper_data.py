@@ -5,7 +5,7 @@ import os
 import aiosqlite
 import dateutil.parser
 
-path_db = '../games_roulette.db'
+path_db = '../metacritic.db'
 path_to_uniq_data = '../../scraper_metacritic/metacritic_data_json_game/uniq_data.json'
 path_to_folder = '../../scraper_metacritic/metacritic_data_json_game'
 

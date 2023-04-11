@@ -1,7 +1,7 @@
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
 
-sqlite_url = 'sqlite+aiosqlite:///games_roulette.db'
+sqlite_url = 'sqlite+aiosqlite:///metacritic.db'
 engine = create_async_engine(sqlite_url, echo=True, future=True)
 async_session = sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
 Base = declarative_base()
